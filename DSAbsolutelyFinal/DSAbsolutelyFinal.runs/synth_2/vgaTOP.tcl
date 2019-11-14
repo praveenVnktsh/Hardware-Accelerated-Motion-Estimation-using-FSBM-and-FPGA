@@ -18,35 +18,36 @@ proc create_report { reportName command } {
   }
 }
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.cache/wt [current_project]
-set_property parent.project_path E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.xpr [current_project]
+set_property webtalk.parent_dir E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.cache/wt [current_project]
+set_property parent.project_path E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.xpr [current_project]
 set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:nexys4_ddr:part0:1.1 [current_project]
-set_property ip_output_repo e:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.cache/ip [current_project]
+set_property ip_output_repo e:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-add_files E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/imports/DSFinal/imageSinglePixel1.coe
-add_files e:/ds/DSAbsolutelyFinal/im1.coe
-add_files e:/ds/DSAbsolutelyFinal/im.coe
+add_files E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/imports/DSFinal/imageSinglePixel1.coe
+add_files E:/ds/DSProjectFinal/DSAbsolutelyFinal/im1.coe
+add_files E:/ds/DSProjectFinal/DSAbsolutelyFinal/im.coe
 read_verilog -library xil_defaultlib {
-  E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vga_bottom.v
-  E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v
+  E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vga_bottom.v
+  E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v
 }
-read_ip -quiet e:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2Read/imageFrame2Read.xci
-set_property used_in_implementation false [get_files -all e:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2Read/imageFrame2Read_ooc.xdc]
+read_ip -quiet E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2Read/imageFrame2Read.xci
+set_property used_in_implementation false [get_files -all e:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2Read/imageFrame2Read_ooc.xdc]
 
-read_ip -quiet E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2/imageFrame2.xci
-set_property used_in_implementation false [get_files -all e:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2/imageFrame2_ooc.xdc]
+read_ip -quiet E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2/imageFrame2.xci
+set_property used_in_implementation false [get_files -all e:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2/imageFrame2_ooc.xdc]
 
-read_ip -quiet E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame1/imageFrame1.xci
-set_property used_in_implementation false [get_files -all e:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame1/imageFrame1_ooc.xdc]
+read_ip -quiet E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame1/imageFrame1.xci
+set_property used_in_implementation false [get_files -all e:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame1/imageFrame1_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -56,8 +57,8 @@ set_property used_in_implementation false [get_files -all e:/ds/DSAbsolutelyFina
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/constrs_1/new/constrainter.xdc
-set_property used_in_implementation false [get_files E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/constrs_1/new/constrainter.xdc]
+read_xdc E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/constrs_1/new/constrainter.xdc
+set_property used_in_implementation false [get_files E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/constrs_1/new/constrainter.xdc]
 
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]

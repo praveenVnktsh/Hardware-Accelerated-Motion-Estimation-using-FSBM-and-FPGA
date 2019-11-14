@@ -2,12 +2,12 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Thu Nov 14 00:07:17 2019
-# Process ID: 8240
-# Current directory: E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2
+# Start of session at: Fri Nov 15 00:43:30 2019
+# Process ID: 12312
+# Current directory: E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2
 # Command line: vivado.exe -log vgaTOP.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source vgaTOP.tcl
-# Log file: E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/vgaTOP.vds
-# Journal file: E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2\vivado.jou
+# Log file: E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/vgaTOP.vds
+# Journal file: E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2\vivado.jou
 #-----------------------------------------------------------
 source vgaTOP.tcl -notrace
 Command: synth_design -top vgaTOP -part xc7a100tcsg324-1
@@ -15,11 +15,11 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 13432 
+INFO: Helper process launched with PID 8840 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 485.363 ; gain = 101.508
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 482.871 ; gain = 100.969
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'vgaTOP' [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:1]
+INFO: [Synth 8-6157] synthesizing module 'vgaTOP' [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:1]
 	Parameter imageWidth bound to: 96 - type: integer 
 	Parameter imageHeight bound to: 96 - type: integer 
 	Parameter imageSize bound to: 9216 - type: integer 
@@ -31,7 +31,7 @@ INFO: [Synth 8-6157] synthesizing module 'vgaTOP' [E:/ds/DSAbsolutelyFinal/DSAbs
 	Parameter blockHeight bound to: 16 - type: integer 
 	Parameter blockSize bound to: 256 - type: integer 
 	Parameter searchWidth bound to: 16 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'vga640x480' [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vga_bottom.v:1]
+INFO: [Synth 8-6157] synthesizing module 'vga640x480' [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vga_bottom.v:1]
 	Parameter HS_STA bound to: 16 - type: integer 
 	Parameter HS_END bound to: 112 - type: integer 
 	Parameter HA_STA bound to: 160 - type: integer 
@@ -40,397 +40,25 @@ INFO: [Synth 8-6157] synthesizing module 'vga640x480' [E:/ds/DSAbsolutelyFinal/D
 	Parameter VA_END bound to: 480 - type: integer 
 	Parameter LINE bound to: 800 - type: integer 
 	Parameter SCREEN bound to: 525 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'vga640x480' (1#1) [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vga_bottom.v:1]
-WARNING: [Synth 8-350] instance 'display' of module 'vga640x480' requires 11 connections, but only 7 given [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:52]
-INFO: [Synth 8-6157] synthesizing module 'imageFrame1' [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/.Xil/Vivado-8240-DESKTOP-M9BES7L/realtime/imageFrame1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'imageFrame1' (2#1) [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/.Xil/Vivado-8240-DESKTOP-M9BES7L/realtime/imageFrame1_stub.v:6]
-WARNING: [Synth 8-689] width (15) of port connection 'addrb' does not match port width (14) of module 'imageFrame1' [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:73]
-INFO: [Synth 8-6157] synthesizing module 'imageFrame2' [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/.Xil/Vivado-8240-DESKTOP-M9BES7L/realtime/imageFrame2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'imageFrame2' (3#1) [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/.Xil/Vivado-8240-DESKTOP-M9BES7L/realtime/imageFrame2_stub.v:6]
-WARNING: [Synth 8-689] width (15) of port connection 'addra' does not match port width (14) of module 'imageFrame2' [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:82]
-WARNING: [Synth 8-689] width (15) of port connection 'addrb' does not match port width (14) of module 'imageFrame2' [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:89]
-INFO: [Synth 8-6157] synthesizing module 'imageFrame2Read' [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/.Xil/Vivado-8240-DESKTOP-M9BES7L/realtime/imageFrame2Read_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'imageFrame2Read' (4#1) [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/.Xil/Vivado-8240-DESKTOP-M9BES7L/realtime/imageFrame2Read_stub.v:6]
-WARNING: [Synth 8-324] index 14 out of range [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:178]
-WARNING: [Synth 8-6014] Unused sequential element rA_reg was removed.  [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:226]
-WARNING: [Synth 8-6014] Unused sequential element gA_reg was removed.  [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:227]
-WARNING: [Synth 8-6014] Unused sequential element rB_reg was removed.  [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:230]
-WARNING: [Synth 8-6014] Unused sequential element gB_reg was removed.  [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:231]
-WARNING: [Synth 8-5788] Register bA_reg in module vgaTOP is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:228]
-WARNING: [Synth 8-5788] Register bB_reg in module vgaTOP is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:232]
-INFO: [Synth 8-6155] done synthesizing module 'vgaTOP' (5#1) [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:1]
----------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 541.512 ; gain = 157.656
----------------------------------------------------------------------------------
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin display:i_rst to constant 0 [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:52]
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 541.512 ; gain = 157.656
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 541.512 ; gain = 157.656
----------------------------------------------------------------------------------
-INFO: [Device 21-403] Loading part xc7a100tcsg324-1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-
-Processing XDC Constraints
-Initializing timing engine
-Parsing XDC File [e:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2Read/imageFrame2Read/imageFrame2Read_in_context.xdc] for cell 'frame2a'
-Finished Parsing XDC File [e:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2Read/imageFrame2Read/imageFrame2Read_in_context.xdc] for cell 'frame2a'
-Parsing XDC File [e:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2/imageFrame2/imageFrame2_in_context.xdc] for cell 'frame2'
-Finished Parsing XDC File [e:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2/imageFrame2/imageFrame2_in_context.xdc] for cell 'frame2'
-Parsing XDC File [e:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame1/imageFrame1/imageFrame1_in_context.xdc] for cell 'frame1'
-Finished Parsing XDC File [e:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame1/imageFrame1/imageFrame1_in_context.xdc] for cell 'frame1'
-Parsing XDC File [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/constrs_1/new/constrainter.xdc]
-Finished Parsing XDC File [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/constrs_1/new/constrainter.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/constrs_1/new/constrainter.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/vgaTOP_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/vgaTOP_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-Parsing XDC File [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/dont_touch.xdc]
-Finished Parsing XDC File [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/dont_touch.xdc]
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 891.109 ; gain = 0.000
-Completed Processing XDC Constraints
-
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 891.117 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 891.117 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 891.117 ; gain = 0.000
-WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'frame1' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
-WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'frame2' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
-WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'frame2a' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
----------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 892.492 ; gain = 508.637
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Loading Part and Timing Information
----------------------------------------------------------------------------------
-Loading part: xc7a100tcsg324-1
----------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 892.492 ; gain = 508.637
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Applying 'set_property' XDC Constraints
----------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for frame2a. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for frame2. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for frame1. (constraint file  auto generated constraint, line ).
----------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 892.492 ; gain = 508.637
----------------------------------------------------------------------------------
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:245]
-INFO: [Synth 8-5544] ROM "aB0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "aB0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "aB0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "aB0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "VGA_R" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "VGA_G" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 892.492 ; gain = 508.637
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start RTL Component Statistics 
----------------------------------------------------------------------------------
-Detailed RTL Component Info : 
-+---Adders : 
-	   4 Input     24 Bit       Adders := 1     
-	   2 Input     17 Bit       Adders := 1     
-	   2 Input     15 Bit       Adders := 1     
-	   3 Input     15 Bit       Adders := 2     
-	   2 Input     14 Bit       Adders := 1     
-	   2 Input     10 Bit       Adders := 3     
-+---Registers : 
-	               24 Bit    Registers := 1     
-	               16 Bit    Registers := 1     
-	               15 Bit    Registers := 3     
-	               14 Bit    Registers := 1     
-	               10 Bit    Registers := 2     
-	                8 Bit    Registers := 2     
-	                4 Bit    Registers := 3     
-	                1 Bit    Registers := 5     
-+---Muxes : 
-	   2 Input     24 Bit        Muxes := 1     
-	   2 Input     10 Bit        Muxes := 5     
-	   2 Input      9 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 1     
-	   2 Input      7 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 3     
-	   4 Input      4 Bit        Muxes := 1     
-	   6 Input      4 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 5     
----------------------------------------------------------------------------------
-Finished RTL Component Statistics 
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start RTL Hierarchical Component Statistics 
----------------------------------------------------------------------------------
-Hierarchical RTL Component report 
-Module vgaTOP 
-Detailed RTL Component Info : 
-+---Adders : 
-	   4 Input     24 Bit       Adders := 1     
-	   2 Input     17 Bit       Adders := 1     
-	   2 Input     15 Bit       Adders := 1     
-	   3 Input     15 Bit       Adders := 2     
-	   2 Input     14 Bit       Adders := 1     
-+---Registers : 
-	               24 Bit    Registers := 1     
-	               16 Bit    Registers := 1     
-	               15 Bit    Registers := 3     
-	               14 Bit    Registers := 1     
-	                8 Bit    Registers := 2     
-	                4 Bit    Registers := 3     
-	                1 Bit    Registers := 5     
-+---Muxes : 
-	   2 Input     24 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 1     
-	   2 Input      7 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 3     
-	   4 Input      4 Bit        Muxes := 1     
-	   6 Input      4 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 2     
-Module vga640x480 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     10 Bit       Adders := 3     
-+---Registers : 
-	               10 Bit    Registers := 2     
-+---Muxes : 
-	   2 Input     10 Bit        Muxes := 5     
-	   2 Input      9 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 3     
----------------------------------------------------------------------------------
-Finished RTL Hierarchical Component Statistics
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Part Resource Summary
----------------------------------------------------------------------------------
-Part Resources:
-DSPs: 240 (col length:80)
-BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
----------------------------------------------------------------------------------
-Finished Part Resource Summary
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Cross Boundary and Area Optimization
----------------------------------------------------------------------------------
-Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-3936] Found unconnected internal register 'counterB_reg' and it is trimmed from '15' to '14' bits. [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:82]
-WARNING: [Synth 8-3936] Found unconnected internal register 'counter_reg' and it is trimmed from '15' to '14' bits. [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:73]
-DSP Report: Generating DSP counter1, operation Mode is: A*(B:0x60).
-DSP Report: operator counter1 is absorbed into DSP counter1.
-INFO: [Synth 8-3886] merging instance 'whiteEndpoint_reg[0]' (FDRE) to 'whiteEndpoint_reg[1]'
-INFO: [Synth 8-3886] merging instance 'whiteEndpoint_reg[14]' (FDRE) to 'whiteEndpoint_reg[1]'
-INFO: [Synth 8-3886] merging instance 'whiteEndpoint_reg[1]' (FDRE) to 'whiteEndpoint_reg[2]'
-INFO: [Synth 8-3886] merging instance 'whiteEndpoint_reg[2]' (FDRE) to 'whiteEndpoint_reg[3]'
-INFO: [Synth 8-3886] merging instance 'whiteEndpoint_reg[3]' (FDRE) to 'whiteEndpoint_reg[4]'
-INFO: [Synth 8-3886] merging instance 'whiteEndpoint_reg[4]' (FDRE) to 'whiteEndpoint_reg[5]'
-INFO: [Synth 8-3886] merging instance 'whiteEndpoint_reg[5]' (FDRE) to 'whiteEndpoint_reg[7]'
-INFO: [Synth 8-3886] merging instance 'whiteEndpoint_reg[6]' (FDSE) to 'whiteEndpoint_reg[8]'
-INFO: [Synth 8-3886] merging instance 'whiteEndpoint_reg[7]' (FDRE) to 'whiteEndpoint_reg[13]'
-INFO: [Synth 8-3886] merging instance 'whiteEndpoint_reg[8]' (FDSE) to 'whiteEndpoint_reg[9]'
-INFO: [Synth 8-3886] merging instance 'whiteEndpoint_reg[9]' (FDSE) to 'whiteEndpoint_reg[10]'
-INFO: [Synth 8-3886] merging instance 'whiteEndpoint_reg[10]' (FDSE) to 'whiteEndpoint_reg[11]'
-INFO: [Synth 8-3886] merging instance 'whiteEndpoint_reg[11]' (FDSE) to 'whiteEndpoint_reg[12]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\whiteEndpoint_reg[13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (isWrite_reg)
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\whiteEndpoint_reg[12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (writeWhite_reg)
----------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 892.492 ; gain = 508.637
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-DSP: Preliminary Mapping  Report (see note below)
-+------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|vgaTOP      | A*(B:0x60)  | 14     | 7      | -      | -      | 21     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-+------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-
-Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Applying XDC Timing Constraints
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 922.766 ; gain = 538.910
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Timing Optimization
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 945.711 ; gain = 561.855
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Technology Mapping
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 945.711 ; gain = 561.855
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Flattening Before IO Insertion
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Final Netlist Cleanup
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 945.711 ; gain = 561.855
----------------------------------------------------------------------------------
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
----------------------------------------------------------------------------------
-Start Renaming Generated Instances
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 945.711 ; gain = 561.855
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
-Start Rebuilding User Hierarchy
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 945.711 ; gain = 561.855
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Ports
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 945.711 ; gain = 561.855
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 945.711 ; gain = 561.855
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Renaming Generated Nets
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 945.711 ; gain = 561.855
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start Writing Synthesis Report
----------------------------------------------------------------------------------
-
-Report BlackBoxes: 
-+------+----------------+----------+
-|      |BlackBox name   |Instances |
-+------+----------------+----------+
-|1     |imageFrame1     |         1|
-|2     |imageFrame2     |         1|
-|3     |imageFrame2Read |         1|
-+------+----------------+----------+
-
-Report Cell Usage: 
-+------+----------------+------+
-|      |Cell            |Count |
-+------+----------------+------+
-|1     |imageFrame1     |     1|
-|2     |imageFrame2     |     1|
-|3     |imageFrame2Read |     1|
-|4     |BUFG            |     1|
-|5     |CARRY4          |    45|
-|6     |DSP48E1         |     1|
-|7     |LUT1            |     5|
-|8     |LUT2            |   101|
-|9     |LUT3            |    26|
-|10    |LUT4            |    23|
-|11    |LUT5            |    23|
-|12    |LUT6            |    53|
-|13    |FDCE            |    86|
-|14    |FDPE            |     8|
-|15    |FDRE            |    66|
-|16    |IBUF            |     1|
-|17    |OBUF            |    14|
-+------+----------------+------+
-
-Report Instance Areas: 
-+------+----------+-----------+------+
-|      |Instance  |Module     |Cells |
-+------+----------+-----------+------+
-|1     |top       |           |   573|
-|2     |  display |vga640x480 |   156|
-+------+----------+-----------+------+
----------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 945.711 ; gain = 561.855
----------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 945.711 ; gain = 210.875
-Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 945.711 ; gain = 561.855
-INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 46 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 945.711 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
+INFO: [Synth 8-6155] done synthesizing module 'vga640x480' (1#1) [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vga_bottom.v:1]
+WARNING: [Synth 8-350] instance 'display' of module 'vga640x480' requires 11 connections, but only 7 given [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:73]
+INFO: [Synth 8-6157] synthesizing module 'imageFrame1' [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/.Xil/Vivado-12312-DESKTOP-M9BES7L/realtime/imageFrame1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'imageFrame1' (2#1) [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/.Xil/Vivado-12312-DESKTOP-M9BES7L/realtime/imageFrame1_stub.v:6]
+WARNING: [Synth 8-689] width (15) of port connection 'addrb' does not match port width (14) of module 'imageFrame1' [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:93]
+INFO: [Synth 8-6157] synthesizing module 'imageFrame2' [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/.Xil/Vivado-12312-DESKTOP-M9BES7L/realtime/imageFrame2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'imageFrame2' (3#1) [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/.Xil/Vivado-12312-DESKTOP-M9BES7L/realtime/imageFrame2_stub.v:6]
+WARNING: [Synth 8-689] width (15) of port connection 'addra' does not match port width (14) of module 'imageFrame2' [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:102]
+WARNING: [Synth 8-689] width (15) of port connection 'addrb' does not match port width (14) of module 'imageFrame2' [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:109]
+INFO: [Synth 8-6157] synthesizing module 'imageFrame2Read' [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/.Xil/Vivado-12312-DESKTOP-M9BES7L/realtime/imageFrame2Read_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'imageFrame2Read' (4#1) [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/.Xil/Vivado-12312-DESKTOP-M9BES7L/realtime/imageFrame2Read_stub.v:6]
+ERROR: [Synth 8-524] part-select [14:12] out of range of prefix 'endpoint' [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:339]
+ERROR: [Synth 8-6156] failed synthesizing module 'vgaTOP' [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:1]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 539.125 ; gain = 157.223
+---------------------------------------------------------------------------------
+RTL Elaboration failed
 INFO: [Common 17-83] Releasing license: Synthesis
-46 Infos, 17 Warnings, 0 Critical Warnings and 0 Errors encountered.
-synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 945.711 ; gain = 573.320
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 945.711 ; gain = 0.000
-WARNING: [Constraints 18-5210] No constraints selected for write.
-Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint 'E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/vgaTOP.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file vgaTOP_utilization_synth.rpt -pb vgaTOP_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Nov 14 00:07:54 2019...
+11 Infos, 4 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Fri Nov 15 00:43:40 2019...

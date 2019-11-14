@@ -60,6 +60,7 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 
 start_step init_design
 set ACTIVE_STEP init_design
@@ -70,16 +71,16 @@ set rc [catch {
   set_property board_part digilentinc.com:nexys4_ddr:part0:1.1 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.cache/wt [current_project]
-  set_property parent.project_path E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.xpr [current_project]
-  set_property ip_output_repo E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.cache/ip [current_project]
+  set_property webtalk.parent_dir E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.cache/wt [current_project]
+  set_property parent.project_path E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.xpr [current_project]
+  set_property ip_output_repo E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_MEMORY [current_project]
-  add_files -quiet E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/vgaTOP.dcp
-  read_ip -quiet e:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2Read/imageFrame2Read.xci
-  read_ip -quiet E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2/imageFrame2.xci
-  read_ip -quiet E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame1/imageFrame1.xci
-  read_xdc E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/constrs_1/new/constrainter.xdc
+  add_files -quiet E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/vgaTOP.dcp
+  read_ip -quiet E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2Read/imageFrame2Read.xci
+  read_ip -quiet E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2/imageFrame2.xci
+  read_ip -quiet E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame1/imageFrame1.xci
+  read_xdc E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/constrs_1/new/constrainter.xdc
   link_design -top vgaTOP -part xc7a100tcsg324-1
   close_msg_db -file init_design.pb
 } RESULT]
