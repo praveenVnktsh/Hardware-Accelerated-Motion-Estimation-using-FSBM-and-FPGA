@@ -35,6 +35,8 @@ set_property ip_cache_permissions {read write} [current_project]
 add_files E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/imports/DSFinal/imageSinglePixel1.coe
 add_files E:/ds/DSProjectFinal/DSAbsolutelyFinal/im1.coe
 add_files E:/ds/DSProjectFinal/DSAbsolutelyFinal/im.coe
+add_files e:/ds/DSProjectFinal/DSAbsolutelyFinal/RIMG_1.coe
+add_files e:/ds/DSProjectFinal/DSAbsolutelyFinal/RIMG_2.coe
 read_verilog -library xil_defaultlib {
   E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vga_bottom.v
   E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v

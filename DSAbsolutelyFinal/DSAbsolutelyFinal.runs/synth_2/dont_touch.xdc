@@ -11,3 +11,9 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==imageFrame2 || 
 
 # IP: ip/imageFrame1/imageFrame1.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==imageFrame1 || ORIG_REF_NAME==imageFrame1} -quiet] -quiet
+
+# XDC: ip/imageFrame2Read/imageFrame2Read_ooc.xdc
+
+# XDC: ip/imageFrame2/imageFrame2_ooc.xdc
+
+# XDC: ip/imageFrame1/imageFrame1_ooc.xdc

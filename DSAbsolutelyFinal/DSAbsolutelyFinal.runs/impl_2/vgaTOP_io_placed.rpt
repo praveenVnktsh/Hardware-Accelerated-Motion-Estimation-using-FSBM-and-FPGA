@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date                      : Fri Nov 15 17:24:12 2019
+| Date                      : Fri Nov 15 18:03:42 2019
 | Host                      : DESKTOP-M9BES7L running 64-bit major release  (build 9200)
 | Command                   : report_io -file vgaTOP_io_placed.rpt
 | Design                    : vgaTOP

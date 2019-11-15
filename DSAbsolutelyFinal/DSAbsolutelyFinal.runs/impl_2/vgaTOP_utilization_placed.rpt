@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Fri Nov 15 17:24:12 2019
+| Date         : Fri Nov 15 18:03:42 2019
 | Host         : DESKTOP-M9BES7L running 64-bit major release  (build 9200)
 | Command      : report_utilization -file vgaTOP_utilization_placed.rpt -pb vgaTOP_utilization_placed.pb
 | Design       : vgaTOP
@@ -67,22 +67,22 @@ Table of Contents
 +--------------------------------------------+------+-------+-----------+-------+
 |                  Site Type                 | Used | Fixed | Available | Util% |
 +--------------------------------------------+------+-------+-----------+-------+
-| Slice                                      |  254 |     0 |     15850 |  1.60 |
-|   SLICEL                                   |  170 |     0 |           |       |
-|   SLICEM                                   |   84 |     0 |           |       |
+| Slice                                      |  242 |     0 |     15850 |  1.53 |
+|   SLICEL                                   |  157 |     0 |           |       |
+|   SLICEM                                   |   85 |     0 |           |       |
 | LUT as Logic                               |  496 |     0 |     63400 |  0.78 |
 |   using O5 output only                     |    1 |       |           |       |
-|   using O6 output only                     |  411 |       |           |       |
-|   using O5 and O6                          |   84 |       |           |       |
+|   using O6 output only                     |  412 |       |           |       |
+|   using O5 and O6                          |   83 |       |           |       |
 | LUT as Memory                              |    0 |     0 |     19000 |  0.00 |
 |   LUT as Distributed RAM                   |    0 |     0 |           |       |
 |   LUT as Shift Register                    |    0 |     0 |           |       |
 | Slice Registers                            |  520 |     0 |    126800 |  0.41 |
-|   Register driven from within the Slice    |  432 |       |           |       |
-|   Register driven from outside the Slice   |   88 |       |           |       |
-|     LUT in front of the register is unused |   60 |       |           |       |
-|     LUT in front of the register is used   |   28 |       |           |       |
-| Unique Control Sets                        |   24 |       |     15850 |  0.15 |
+|   Register driven from within the Slice    |  435 |       |           |       |
+|   Register driven from outside the Slice   |   85 |       |           |       |
+|     LUT in front of the register is unused |   58 |       |           |       |
+|     LUT in front of the register is used   |   27 |       |           |       |
+| Unique Control Sets                        |   25 |       |     15850 |  0.16 |
 +--------------------------------------------+------+-------+-----------+-------+
 * Note: Available Control Sets calculated as Slice Registers / 8, Review the Control Sets Report for more information regarding control sets.
 
@@ -178,13 +178,13 @@ Table of Contents
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDRE     |  471 |        Flop & Latch |
-| LUT2     |  195 |                 LUT |
+| LUT2     |  194 |                 LUT |
 | CARRY4   |  139 |          CarryLogic |
 | LUT6     |  118 |                 LUT |
 | LUT4     |  106 |                 LUT |
-| LUT3     |   69 |                 LUT |
+| LUT3     |   68 |                 LUT |
 | LUT5     |   59 |                 LUT |
-| LUT1     |   33 |                 LUT |
+| LUT1     |   34 |                 LUT |
 | OBUF     |   30 |                  IO |
 | FDSE     |   25 |        Flop & Latch |
 | FDCE     |   24 |        Flop & Latch |
@@ -208,12 +208,8 @@ Table of Contents
 10. Instantiated Netlists
 -------------------------
 
-+-----------------+------+
-|     Ref Name    | Used |
-+-----------------+------+
-| imageFrame2Read |    1 |
-| imageFrame2     |    1 |
-| imageFrame1     |    1 |
-+-----------------+------+
++----------+------+
+| Ref Name | Used |
++----------+------+
 
 

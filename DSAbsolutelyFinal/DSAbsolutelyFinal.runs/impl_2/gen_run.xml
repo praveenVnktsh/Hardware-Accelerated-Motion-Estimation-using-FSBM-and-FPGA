@@ -1,69 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_2" LaunchPart="xc7a100tcsg324-1" LaunchTime="1573818671">
-  <File Type="BITSTR-BMM" Name="vgaTOP_bd.bmm"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="vgaTOP_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="vgaTOP_timing_summary_init.rpt"/>
+<GenRun Id="impl_2" LaunchPart="xc7a100tcsg324-1" LaunchTime="1573820618">
   <File Type="ROUTE-PWR" Name="vgaTOP_power_routed.rpt"/>
   <File Type="PA-TCL" Name="vgaTOP.tcl"/>
-  <File Type="OPT-TIMING" Name="vgaTOP_timing_summary_opted.rpt"/>
-  <File Type="OPT-DCP" Name="vgaTOP_opt.dcp"/>
+  <File Type="BITSTR-BMM" Name="vgaTOP_bd.bmm"/>
   <File Type="ROUTE-PWR-SUM" Name="vgaTOP_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="vgaTOP_reports.tcl"/>
+  <File Type="OPT-DCP" Name="vgaTOP_opt.dcp"/>
   <File Type="OPT-DRC" Name="vgaTOP_drc_opted.rpt"/>
   <File Type="OPT-HWDEF" Name="vgaTOP.hwdef"/>
   <File Type="PWROPT-DCP" Name="vgaTOP_pwropt.dcp"/>
-  <File Type="PWROPT-DRC" Name="vgaTOP_drc_pwropted.rpt"/>
-  <File Type="PWROPT-TIMING" Name="vgaTOP_timing_summary_pwropted.rpt"/>
   <File Type="PLACE-DCP" Name="vgaTOP_placed.dcp"/>
   <File Type="PLACE-IO" Name="vgaTOP_io_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="vgaTOP_clock_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL" Name="vgaTOP_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL-PB" Name="vgaTOP_utilization_placed.pb"/>
   <File Type="PLACE-CTRL" Name="vgaTOP_control_sets_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="vgaTOP_incremental_reuse_placed.rpt"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="vgaTOP_incremental_reuse_pre_placed.rpt"/>
   <File Type="BG-BGN" Name="vgaTOP.bgn"/>
-  <File Type="PLACE-TIMING" Name="vgaTOP_timing_summary_placed.rpt"/>
   <File Type="POSTPLACE-PWROPT-DCP" Name="vgaTOP_postplace_pwropt.dcp"/>
   <File Type="BG-BIN" Name="vgaTOP.bin"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="vgaTOP_timing_summary_postplace_pwropted.rpt"/>
   <File Type="PHYSOPT-DCP" Name="vgaTOP_physopt.dcp"/>
-  <File Type="PHYSOPT-DRC" Name="vgaTOP_drc_physopted.rpt"/>
   <File Type="BITSTR-MSK" Name="vgaTOP.msk"/>
-  <File Type="PHYSOPT-TIMING" Name="vgaTOP_timing_summary_physopted.rpt"/>
   <File Type="ROUTE-ERROR-DCP" Name="vgaTOP_routed_error.dcp"/>
   <File Type="ROUTE-DCP" Name="vgaTOP_routed.dcp"/>
   <File Type="ROUTE-BLACKBOX-DCP" Name="vgaTOP_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="vgaTOP_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="vgaTOP_drc_routed.pb"/>
-  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="vgaTOP.ltx"/>
   <File Type="ROUTE-DRC-RPX" Name="vgaTOP_drc_routed.rpx"/>
-  <File Type="BITSTR-MMI" Name="vgaTOP.mmi"/>
+  <File Type="BITSTR-LTX" Name="vgaTOP.ltx"/>
   <File Type="ROUTE-METHODOLOGY-DRC" Name="vgaTOP_methodology_drc_routed.rpt"/>
+  <File Type="BITSTR-MMI" Name="vgaTOP.mmi"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="vgaTOP_methodology_drc_routed.rpx"/>
-  <File Type="BITSTR-SYSDEF" Name="vgaTOP.sysdef"/>
   <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="vgaTOP_methodology_drc_routed.pb"/>
+  <File Type="BITSTR-SYSDEF" Name="vgaTOP.sysdef"/>
   <File Type="ROUTE-PWR-RPX" Name="vgaTOP_power_routed.rpx"/>
   <File Type="ROUTE-STATUS" Name="vgaTOP_route_status.rpt"/>
   <File Type="ROUTE-STATUS-PB" Name="vgaTOP_route_status.pb"/>
   <File Type="ROUTE-TIMINGSUMMARY" Name="vgaTOP_timing_summary_routed.rpt"/>
   <File Type="ROUTE-TIMING-PB" Name="vgaTOP_timing_summary_routed.pb"/>
   <File Type="ROUTE-TIMING-RPX" Name="vgaTOP_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-SIMILARITY" Name="vgaTOP_incremental_reuse_routed.rpt"/>
   <File Type="ROUTE-CLK" Name="vgaTOP_clock_utilization_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW" Name="vgaTOP_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="vgaTOP_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="vgaTOP_bus_skew_routed.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="vgaTOP_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="vgaTOP_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="vgaTOP_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="vgaTOP_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="vgaTOP_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="vgaTOP_bus_skew_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="vgaTOP_bus_skew_postroute_physopted.pb"/>
   <File Type="BG-BIT" Name="vgaTOP.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="vgaTOP_bus_skew_postroute_physopted.rpx"/>
   <File Type="BITSTR-RBT" Name="vgaTOP.rbt"/>
   <File Type="BITSTR-NKY" Name="vgaTOP.nky"/>
   <File Type="BG-DRC" Name="vgaTOP.drc"/>
@@ -150,6 +131,18 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/RIMG_1.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/RIMG_2.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="vgaTOP"/>
@@ -189,6 +182,8 @@
     <Step Id="phys_opt_design"/>
     <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
-    <Step Id="write_bitstream"/>
+    <Step Id="write_bitstream">
+      <Option Id="BinFile">1</Option>
+    </Step>
   </Strategy>
 </GenRun>

@@ -88,13 +88,13 @@ module vgaTOP(
       .clka(clk), 
       .wea(1'b0), 
       .addra(aA), 
-      .dina(24'b000000001000000000000000), 
+      .dina(24'b111111111111111111111111), 
       .douta(outA),
       //VGA Frame 1 READ
       .clkb(clk), 
       .web(1'b0), 
       .addrb(counter), 
-      .dinb(24'b000000001000000000000000), 
+      .dinb(24'b111111111111111111111111), 
       .doutb(vgaOUT1)
     );
     //BRAM for reading frame 2. Port A for VGA display Read, Port B for endpoint write
@@ -103,14 +103,14 @@ module vgaTOP(
       .clka(clk), 
       .wea(1'b0), 
       .addra(counterB), 
-      .dina(24'b000000001000000000000000), 
+      .dina(24'b111111111111111111111111), 
       .douta(vgaOUT2),
       //WRITING
       .clkb(clk), 
       .enb(isWrite),
       .web(writeWhite), 
       .addrb(whiteEndpoint), 
-      .dinb(24'b000000001000000000000000), 
+      .dinb(24'b111111111111111111111111), 
       .doutb(unused)
     ); 
     //BRAM for calculations on Frame 2
@@ -119,7 +119,7 @@ module vgaTOP(
       .clka(clk), 
       .wea(1'b0), 
       .addra(aB), 
-      .dina(24'b000000001000000000000000), 
+      .dina(24'b111111111111111111111111), 
       .douta(outB)
     );
     

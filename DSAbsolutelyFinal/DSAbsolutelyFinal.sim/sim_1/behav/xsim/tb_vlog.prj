@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2Read/sim/imageFrame2Read.v" \
+"../../../../DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2/sim/imageFrame2.v" \
+"../../../../DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame1/sim/imageFrame1.v" \
+"../../../../DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v" \
+"../../../../DSAbsolutelyFinal.srcs/sources_1/new/vga_bottom.v" \
+"../../../../DSAbsolutelyFinal.srcs/sim_1/new/tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

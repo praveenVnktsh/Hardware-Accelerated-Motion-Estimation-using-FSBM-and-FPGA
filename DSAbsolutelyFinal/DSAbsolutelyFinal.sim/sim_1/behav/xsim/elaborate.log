@@ -1,11 +1,11 @@
 Vivado Simulator 2018.3
 Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: I:/ProgramFiles/vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto d3e4145042264fb0a96bc77a4d69b2f9 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot vgaTOP_behav xil_defaultlib.vgaTOP xil_defaultlib.glbl -log elaborate.log 
+Running: I:/ProgramFiles/vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto d3e4145042264fb0a96bc77a4d69b2f9 --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 15 for port 'addrA' [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:38]
-ERROR: [VRFC 10-2967] 'drawVGA' is not a task [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:52]
-ERROR: [VRFC 10-2967] 'drawBinary' is not a task [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:55]
-WARNING: [VRFC 10-3363] function 'drawBinary' has no return value assignment [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:59]
-WARNING: [VRFC 10-3363] function 'drawVGA' has no return value assignment [E:/ds/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:76]
-ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 7 for port 'seg' [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sim_1/new/tb.v:36]
+WARNING: [VRFC 10-3091] actual bit length 15 differs from formal bit length 14 for port 'addrb' [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:96]
+WARNING: [VRFC 10-3091] actual bit length 15 differs from formal bit length 14 for port 'addra' [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:105]
+WARNING: [VRFC 10-3091] actual bit length 15 differs from formal bit length 14 for port 'addrb' [E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new/vgaTOP.v:112]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

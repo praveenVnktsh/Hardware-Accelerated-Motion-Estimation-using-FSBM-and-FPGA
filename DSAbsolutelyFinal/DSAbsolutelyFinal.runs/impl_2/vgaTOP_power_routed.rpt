@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date             : Fri Nov 15 17:25:37 2019
+| Date             : Fri Nov 15 18:05:15 2019
 | Host             : DESKTOP-M9BES7L running 64-bit major release  (build 9200)
 | Command          : report_power -file vgaTOP_power_routed.rpt -pb vgaTOP_power_summary_routed.pb -rpx vgaTOP_power_routed.rpx
 | Design           : vgaTOP
@@ -52,14 +52,14 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.004 |        3 |       --- |             --- |
-| Slice Logic    |     0.001 |     1310 |       --- |             --- |
+| Clocks         |     0.003 |        3 |       --- |             --- |
+| Slice Logic    |     0.001 |     1309 |       --- |             --- |
 |   LUT as Logic |     0.001 |      496 |     63400 |            0.78 |
 |   CARRY4       |    <0.001 |      139 |     15850 |            0.88 |
 |   Register     |    <0.001 |      520 |    126800 |            0.41 |
 |   F7/F8 Muxes  |    <0.001 |        3 |     63400 |           <0.01 |
 |   Others       |     0.000 |       68 |       --- |             --- |
-| Signals        |     0.002 |     1010 |       --- |             --- |
+| Signals        |     0.002 |     1007 |       --- |             --- |
 | Block RAM      |     0.009 |     16.5 |       135 |           12.22 |
 | DSPs           |    <0.001 |        1 |       240 |            0.42 |
 | I/O            |     0.015 |       32 |       210 |           15.24 |
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.031 |       0.015 |      0.015 |
+| Vccint    |       1.000 |     0.030 |       0.015 |      0.015 |
 | Vccaux    |       1.800 |     0.019 |       0.001 |      0.018 |
 | Vcco33    |       3.300 |     0.008 |       0.004 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
