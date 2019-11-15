@@ -33,5 +33,5 @@ module tb();
         #0.1; clk = ~clk;
     end
     
-    vgaTOP mod(clk,hs,vs,red,green,blue,an,seg,dp,reset);
+    main mod(clk,hs,vs,red,green,blue,an,seg,dp,reset);
 endmodule

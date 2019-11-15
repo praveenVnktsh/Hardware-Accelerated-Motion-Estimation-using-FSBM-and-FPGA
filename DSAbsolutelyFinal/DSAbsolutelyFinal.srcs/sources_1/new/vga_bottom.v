@@ -1,3 +1,6 @@
+//THE FOLLOWING FILE WAS TAKEN FROM https://timetoexplore.net/blog/arty-fpga-vga-verilog-01
+//ALL CREDITS BELONG TO timetoexplore.net FOR THIS MODULE ALONE.
+
 module vga640x480(
     input wire i_clk,           // base clock
     input wire i_pix_stb,       // pixel clock strobe
@@ -12,7 +15,7 @@ module vga640x480(
     output wire [8:0] o_y       // current pixel y position
     );
 
-    // VGA timings https://timetoexplore.net/blog/video-timings-vga-720p-1080p
+    
     localparam HS_STA = 16;              // horizontal sync start
     localparam HS_END = 16 + 96;         // horizontal sync end
     localparam HA_STA = 16 + 96 + 48;    // horizontal active pixel start
