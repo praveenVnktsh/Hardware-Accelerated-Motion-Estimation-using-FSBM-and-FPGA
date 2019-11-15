@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_2" LaunchPart="xc7a100tcsg324-1" LaunchTime="1573798211">
+<GenRun Id="impl_2" LaunchPart="xc7a100tcsg324-1" LaunchTime="1573818671">
   <File Type="BITSTR-BMM" Name="vgaTOP_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="vgaTOP_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="vgaTOP_timing_summary_init.rpt"/>
@@ -178,7 +178,9 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
+      <Desc>Default settings for Implementation.</Desc>
+    </StratHandle>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>

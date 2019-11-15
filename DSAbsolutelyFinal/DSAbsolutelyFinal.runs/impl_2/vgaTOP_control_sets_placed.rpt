@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Fri Nov 15 11:43:24 2019
+| Date         : Fri Nov 15 17:24:12 2019
 | Host         : DESKTOP-M9BES7L running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file vgaTOP_control_sets_placed.rpt
 | Design       : vgaTOP
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    16 |
-| Unused register locations in slices containing registers |    32 |
+| Number of unique control sets                            |    24 |
+| Unused register locations in slices containing registers |    48 |
 +----------------------------------------------------------+-------+
 
 
@@ -34,11 +34,13 @@ Table of Contents
 +--------+--------------+
 | Fanout | Control Sets |
 +--------+--------------+
-|      1 |            1 |
-|      9 |            1 |
-|     10 |            1 |
+|      2 |            1 |
+|      4 |            2 |
+|      7 |            1 |
+|     10 |            2 |
+|     12 |            1 |
 |     14 |            3 |
-|    16+ |           10 |
+|    16+ |           14 |
 +--------+--------------+
 
 
@@ -48,12 +50,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              24 |            8 |
+| No           | No                    | No                     |              73 |           29 |
 | No           | No                    | Yes                    |              20 |            5 |
-| No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |             157 |           44 |
+| No           | Yes                   | No                     |               4 |            2 |
+| Yes          | No                    | No                     |             197 |           60 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             135 |           35 |
+| Yes          | Yes                   | No                     |             226 |           57 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -63,22 +65,30 @@ Table of Contents
 +----------------+----------------------------+----------------------------+------------------+----------------+
 |  Clock Signal  |        Enable Signal       |      Set/Reset Signal      | Slice Load Count | Bel Load Count |
 +----------------+----------------------------+----------------------------+------------------+----------------+
-|  clk_IBUF_BUFG | pix_stb                    | display/h_count[5]_i_1_n_0 |                1 |              1 |
-|  clk_IBUF_BUFG | pix_stb                    |                            |                4 |              9 |
-|  clk_IBUF_BUFG | display/v_count[9]_i_1_n_0 |                            |                4 |             10 |
-|  clk_IBUF_BUFG | iM[0]_i_2_n_0              |                            |                4 |             14 |
-|  clk_IBUF_BUFG | aA[0]_i_1_n_0              | blockSAD                   |                4 |             14 |
-|  clk_IBUF_BUFG | aB[13]_i_1_n_0             |                            |                3 |             14 |
-|  clk_IBUF_BUFG | bB[7]_i_1_n_0              |                            |                4 |             16 |
+|  clk_IBUF_BUFG | display/v_count[9]_i_2_n_0 | display/v_count[9]_i_1_n_0 |                2 |              2 |
+|  clk_IBUF_BUFG |                            | min_sad                    |                2 |              4 |
+|  clk_IBUF_BUFG | aB[13]_i_1_n_0             | aA[3]_i_1_n_0              |                2 |              4 |
+|  clk_IBUF_BUFG | display/v_count[9]_i_2_n_0 |                            |                4 |              7 |
+|  clk_IBUF_BUFG | addrA[4]_i_1_n_0           |                            |                3 |             10 |
+|  clk_IBUF_BUFG | pix_stb                    |                            |                5 |             10 |
+|  clk_IBUF_BUFG | VGA_R[3]_i_2_n_0           | display/SR[0]              |                3 |             12 |
+|  clk_IBUF_BUFG | addrB[0]_i_1_n_0           |                            |                4 |             14 |
+|  clk_IBUF_BUFG | endpoint[13]_i_1_n_0       |                            |                4 |             14 |
+|  clk_IBUF_BUFG | whiteEndpoint[13]_i_1_n_0  |                            |                6 |             14 |
+|  clk_IBUF_BUFG | bB[7]_i_1_n_0              |                            |                5 |             16 |
 |  clk_IBUF_BUFG |                            | reset_IBUF                 |                5 |             20 |
-|  clk_IBUF_BUFG |                            |                            |                8 |             24 |
-|  clk_IBUF_BUFG | blockSAD[23]_i_2_n_0       | blockSAD                   |                6 |             24 |
-|  clk_IBUF_BUFG | blockSADFinal[23]_i_1_n_0  |                            |                6 |             24 |
-|  clk_IBUF_BUFG | j[0]_i_1_n_0               | blockSAD                   |                8 |             32 |
-|  clk_IBUF_BUFG | iM[0]_i_2_n_0              | jM                         |                8 |             32 |
+|  clk_IBUF_BUFG | aB[13]_i_1_n_0             |                            |                5 |             24 |
+|  clk_IBUF_BUFG | bB[7]_i_1_n_0              | blockSAD                   |                6 |             24 |
+|  clk_IBUF_BUFG | blockSADFinal[23]_i_1_n_0  |                            |                8 |             24 |
+|  clk_IBUF_BUFG | endpoint                   | min_sad                    |                4 |             24 |
+|  clk_IBUF_BUFG | iM[0]_i_2_n_0              | iM[0]_i_1_n_0              |                8 |             32 |
+|  clk_IBUF_BUFG | iT[0]_i_2_n_0              | iT[0]_i_1_n_0              |                8 |             32 |
 |  clk_IBUF_BUFG | i[0]_i_2_n_0               | i[0]_i_1_n_0               |                8 |             32 |
-|  clk_IBUF_BUFG | jM                         |                            |                8 |             32 |
-|  clk_IBUF_BUFG | min_sad[23]_i_1_n_0        |                            |               11 |             38 |
+|  clk_IBUF_BUFG | jM                         | min_sad                    |                8 |             32 |
+|  clk_IBUF_BUFG | jT[0]_i_1_n_0              |                            |                8 |             32 |
+|  clk_IBUF_BUFG | j[0]_i_1_n_0               | blockSAD                   |                8 |             32 |
+|  clk_IBUF_BUFG | randomcounter[0]_i_1_n_0   |                            |                8 |             32 |
+|  clk_IBUF_BUFG |                            |                            |               29 |             73 |
 +----------------+----------------------------+----------------------------+------------------+----------------+
 
 

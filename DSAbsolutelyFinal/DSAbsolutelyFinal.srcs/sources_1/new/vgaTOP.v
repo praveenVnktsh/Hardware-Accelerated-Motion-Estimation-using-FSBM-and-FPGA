@@ -24,15 +24,14 @@ module vgaTOP(
     parameter RESET = 0;
     parameter CALCULATING = 1;
     parameter DONE = 2;
+    parameter DOUBLEDONE = 3;
     //BLOCKSAD Calculator
     reg [pixelWidth:0] blockSAD = 0 ;
     reg [pixelWidth:0] blockSADFinal = 0 ;
-    reg [addressLength:0] addrA = 5000;
-    reg [addressLength:0] addrB = 5000;
-    reg [addressLength:0] addrS = 5000;
-    reg [2:0] blockSadState = 0;
-    reg [2:0] blockSadNextState = 1;
+    reg [addressLength:0] addrA = 0;
+    reg [addressLength:0] addrB = 0;
     
+       
     //BRAM variables
     wire [pixelWidth:0] outA;
     wire [pixelWidth:0] outB;
@@ -73,7 +72,6 @@ module vgaTOP(
     reg [pixelWidth:0] minSADFinal =  0;
     integer  jM = 0;
     integer  iM = 0;
-    reg [2:0] algState = 0;
     //VGA display generator
     vga640x480 display (
         .i_clk(clk),
@@ -90,13 +88,13 @@ module vgaTOP(
       .clka(clk), 
       .wea(1'b0), 
       .addra(aA), 
-      .dina(24'b111111111111111111111111), 
+      .dina(24'b000000001000000000000000), 
       .douta(outA),
       //VGA Frame 1 READ
       .clkb(clk), 
       .web(1'b0), 
       .addrb(counter), 
-      .dinb(24'b111111111111111111111111), 
+      .dinb(24'b000000001000000000000000), 
       .doutb(vgaOUT1)
     );
     //BRAM for reading frame 2. Port A for VGA display Read, Port B for endpoint write
@@ -105,14 +103,14 @@ module vgaTOP(
       .clka(clk), 
       .wea(1'b0), 
       .addra(counterB), 
-      .dina(24'b111111111111111111111111), 
+      .dina(24'b000000001000000000000000), 
       .douta(vgaOUT2),
       //WRITING
       .clkb(clk), 
       .enb(isWrite),
       .web(writeWhite), 
       .addrb(whiteEndpoint), 
-      .dinb(24'b111111111111111111111111), 
+      .dinb(24'b000000001000000000000000), 
       .doutb(unused)
     ); 
     //BRAM for calculations on Frame 2
@@ -121,7 +119,7 @@ module vgaTOP(
       .clka(clk), 
       .wea(1'b0), 
       .addra(aB), 
-      .dina(24'b111111111111111111111111), 
+      .dina(24'b000000001000000000000000), 
       .douta(outB)
     );
     
@@ -136,18 +134,25 @@ module vgaTOP(
             if(flag == 1)
             begin
                 writeWhite <= 1'b1; //make it write only
-                whiteEndpoint <= 5000;
+                // whiteEndpoint <= 5000;
                 flag <= 0;
             end
             else
             begin
                 writeWhite <= 1'b0; //make it read only
+                // isWrite <= 0;
                 flag <= 1;
             end
         end
         else
         begin 
-            if(x>100 && y>20 && x<196 && y <116)
+            if(((x-200-8)%16 == 0 && (y-20-8)%16 == 0) &&((x-200)<96 &&(y-20)<96))
+            begin
+                VGA_R <= 4'b0000;
+                VGA_G <= 4'b0000;
+                VGA_B <= 4'b0000;
+            end
+            else if(x>100 && y>20 && x<196 && y <116)
             begin
                 VGA_R <=  vgaOUT1[23:20];
                 VGA_G <=  vgaOUT1[15:12];
@@ -167,46 +172,107 @@ module vgaTOP(
             end
         end
     end
-    reg minErrorState = 1;
-    reg sadDone = CALCULATING;
+    reg [2:0] programState = CALCULATING;
+    reg [2:0] minErrorState = DONE;
+    reg [2:0] minErrorSwitchState = DONE;
+    reg [2:0] sadSwitchState = DOUBLEDONE;
+    reg [2:0] blockSadState = DOUBLEDONE;
+    integer randomcounter = 0;
+    integer writeFlag = 0;
+    integer jT = 0;
+    integer iT = 0;
+    
+    always@(posedge clk)
+    begin
+        if(minErrorSwitchState == CALCULATING)
+            minErrorState <= CALCULATING;
+        else if(minErrorSwitchState == DONE)
+            minErrorState <= DONE;
+        else if(minErrorSwitchState == RESET)
+            minErrorState <= RESET;
+
+        if(minErrorState == DONE)
+        begin
+            if(jT<(imageHeight/blockWidth)) //if block is over, then fix SAD for that block.
+            begin       
+                randomcounter <= randomcounter + 1;     
+                //move to next address?
+                minErrorState <= RESET;
+                if(iT<(imageHeight/blockWidth)-1) //advance to next pixel (same row,if row is not completely traversed)
+                begin
+                    iT <= iT + 1;
+                    addrA <= addrA + blockWidth;
+                end
+                else //if row is complete goto next row
+                begin
+                    if(jT<(imageHeight/blockWidth)-1)
+                    begin
+                        iT <= 0;
+                        jT <= jT+1; 
+                        addrA <= addrA + imageHeight*blockWidth - imageWidth + blockWidth;    
+                    end
+                    else
+                        jT <= jT + 1;                                       
+                end 
+            end
+            else 
+            begin
+                minErrorState <= DOUBLEDONE;
+            end  
+        end
+        else
+        begin
+            programState <= DOUBLEDONE;
+        end
+    end
+
     always @(posedge clk)
     begin 
+        if(sadSwitchState == CALCULATING)
+            blockSadState <= CALCULATING;
+        else if(sadSwitchState == DONE)
+            blockSadState <= DONE;
+        else if(sadSwitchState == RESET)
+            blockSadState <= RESET;
         
-
-        if(minErrorState == 0)
-        begin
+        if(minErrorState == RESET)
+        begin 
             iM <= 0;
             jM <= 0;
             min_sad <=  24'b111111111111111111111111;
-            if( addrS == 0 ) //top left corner
-                addrB <= addrS;   
-            else if( addrS == imageWidth-blockWidth  ) //topRight corner
-                addrB <= addrS-searchWidth-searchWidth ; //move left twice 
-            else if( addrS == imageWidth*(imageHeight - blockWidth) ) //bottom left corner
-                addrB <= addrS -(searchWidth*2)*imageWidth;   
-            else if( addrS ==  (1+imageWidth)*(imageHeight - blockWidth)) //bottom right corner
-                addrB <= addrS-(searchWidth*2)*imageWidth-searchWidth-searchWidth  ;   
-            else if( addrS > 0 && addrS < imageWidth-blockWidth  ) //top edge
-                addrB <= addrS-searchWidth;   
-            else if(  addrS > imageWidth*(imageHeight - blockWidth ) && addrS < (1+imageWidth)*(imageHeight - blockWidth) ) //bottom edge 
-                addrB <= addrS-(searchWidth*2)*imageWidth-searchWidth  ;   
-            else if( addrS %(blockWidth*imageWidth) == 0  ) // left edge
-                addrB <= addrS - searchWidth*imageWidth  ;   
-            else if(addrS %(blockWidth*imageWidth) == 176) //right edge
-                addrB <= addrS-searchWidth-searchWidth -(searchWidth)*imageWidth  ;
+            if( addrA == 0 ) //top left corner
+                addrB <= addrA;   
+            else if( addrA == imageWidth-blockWidth  ) //topRight corner
+                addrB <= addrA-searchWidth-searchWidth ; //move left twice 
+            else if( addrA == imageWidth*(imageHeight - blockWidth) ) //bottom left corner
+                addrB <= addrA -(searchWidth*2)*imageWidth;   
+            else if( addrA ==  (1+imageWidth)*(imageHeight - blockWidth)) //bottom right corner
+                addrB <= addrA-(searchWidth*2)*imageWidth-searchWidth-searchWidth  ;   
+            else if( addrA > 0 && addrA < imageWidth-blockWidth  ) //top edge
+                addrB <= addrA-searchWidth;   
+            else if(  addrA > imageWidth*(imageHeight - blockWidth ) && addrA < (1+imageWidth)*(imageHeight - blockWidth) ) //bottom edge 
+                addrB <= addrA-(searchWidth*2)*imageWidth-searchWidth  ;   
+            else if( addrA %(blockWidth*imageWidth) == 0  ) // left edge
+                addrB <= addrA - searchWidth*imageWidth;   
+            else if(addrA %(blockWidth*imageWidth) == 176) //right edge
+                addrB <= addrA-searchWidth-searchWidth -(searchWidth)*imageWidth  ;
             else //not corner or edge
-                addrB <= addrS - searchWidth*imageWidth - searchWidth  ; //aB is the startpoint of searchArea
-            blockSadState <= 0;
+                addrB <= addrA - searchWidth*imageWidth - searchWidth  ; //aB is the startpoint of searchArea
+            minErrorSwitchState <= CALCULATING;
+            blockSadState <= RESET;
+            writeFlag <= 0;
         end
-        else if( blockSadState == DONE) 
+        else if(blockSadState == DONE)
         begin
+                
                 if( jM<(searchWidth+searchWidth)) //then fix blockSADFinal for that block.
                 begin
+                    blockSadState <= RESET;
                     //find min blockSADFinal
                     if(blockSADFinal<min_sad)
                           begin
                             min_sad <= blockSADFinal;
-                            endpoint <= aB + blockWidth/2 + blockWidth/2*imageWidth; //endpoint of vector
+                            endpoint <= aB - blockWidth/2 - (blockWidth/2)*imageWidth; //endpoint of vector
                           end
                     else
                           minSADFinal <= min_sad;                          
@@ -216,43 +282,40 @@ module vgaTOP(
                     begin
                         iM <=  iM+1;
                         addrB <= addrB +1;
-                        blockSadState <= RESET;
                     end
                     else //if row is complete goto next row
                     begin
                          iM <= 0;
                          jM <=  jM+1;
                          addrB <= addrB + imageWidth-(searchWidth+searchWidth) + 1;  
-                         blockSadState <= RESET;
                     end 
                 end
                 else 
                 begin
                     minSADFinal <= min_sad; //fixate here
+                    
+                    if(writeFlag == 0)
+                    begin
+                        whiteEndpoint<=endpoint;
+                        isWrite <= 1;
+                        writeFlag <= 1;
+                    end
+                    else
+                        isWrite <= 0;
+
+                    minErrorSwitchState <= DONE;
+                    blockSadState <= DOUBLEDONE;
                 end
             end
-       else if(blockSadState == RESET)
-       begin
-           blockSadState <= CALCULATING;
-       end
-       else if(blockSadState == CALCULATING)
-       begin
-            if(sadDone == DONE)
-                blockSadState <= DONE;
-            else
-                blockSadState <= CALCULATING;
-       end     
-       else //last if
-       begin
-            min_sad <= min_sad;
-       end    
+        else
+        begin
+         //TODO
+        end
     end
-    
-
+   
     //matcher.v   
     always@(posedge clk)    
     begin
-    
         case(blockSadState)
             RESET: 
                 begin
@@ -261,10 +324,12 @@ module vgaTOP(
                     i <= 0;
                     j <= 0;
                     blockSAD <= 0;
-                    sadDone <= CALCULATING;
+                    
+                    sadSwitchState <= CALCULATING;
                 end
             CALCULATING: 
                 begin
+                    
                     if(j<blockWidth) //if block is over, then fix SAD for that block.
                     begin
                         //taking RGB values of pixels from frames A and B of respective addresses
@@ -314,61 +379,74 @@ module vgaTOP(
                     else 
                     begin
                         blockSADFinal <= blockSAD;
-                        sadDone <= DONE;
+                        sadSwitchState <= DONE;
                     end    
                 end
             default:
             begin
-                //TODO
+                blockSADFinal <= blockSAD;
             end    
         endcase        
       end 
 
     
     //block for seven segment mapping value to display
+    wire [32:0] ledDisplay;
+//    assign ledDisplay = {10'b0000000000,endpoint};
+    assign ledDisplay = {randomcounter};
     always @(*)
     begin
         case(sevenSegCounter)
         3'b111: begin
             an = 8'b11111110; 
-            
-            LED_BCD =endpoint[3:0];
+                      LED_BCD  = ledDisplay[3:0];
+//            LED_BCD =endpoint[3:0];
 //           LED_BCD =min_sad[23:20];
               end
         3'b110: begin
             an = 8'b11111101; 
 //             LED_BCD =min_sad[19:16];
-                
-                LED_BCD =endpoint[7:4];
+                LED_BCD  = ledDisplay[7:4];
+//                LED_BCD =endpoint[7:4];
               end
         3'b101: begin
             an = 8'b11111011; 
+            
+            LED_BCD  = ledDisplay[11:8];
 //            LED_BCD =min_sad[15:12];
-                LED_BCD =endpoint[11:8];
+//                LED_BCD =endpoint[11:8];
                 end
         3'b100: begin
             an = 8'b11110111; 
+           
+           LED_BCD  = ledDisplay[15:12];
 //             LED_BCD =min_sad[11:8];
-                LED_BCD =endpoint[13:12];
+//                LED_BCD =endpoint[13:12];
                end
                
         3'b011: begin
             an = 8'b11101111; 
+            LED_BCD  = ledDisplay[19:16]; 
 //             LED_BCD =min_sad[7:4];
-               LED_BCD =0;
+//               LED_BCD =0;
               end
         3'b010: begin
             an = 8'b11011111; 
+            LED_BCD  = ledDisplay[23:20];
 //            LED_BCD =min_sad[3:0];
-                LED_BCD =0;
+//                LED_BCD =0;
               end
         3'b001: begin
             an = 8'b10111111; 
-             LED_BCD =0;
+            LED_BCD  = ledDisplay[27:24];
+            // LED_BCD =0;
+//             LED_BCD =randomcounter[3:0];
                 end
         3'b000: begin
             an = 8'b01111111; 
-             LED_BCD =0;
+            LED_BCD  = ledDisplay[31:28];
+            // LED_BCD =0;    
+//             LED_BCD =randomcounter[7:4];
                end
         endcase
     end
@@ -394,7 +472,7 @@ module vgaTOP(
         default: seg = 7'b1000000; // "0"
         endcase
     end    
-     always @(posedge clk or negedge reset)
+    always @(posedge clk or negedge reset)
     begin 
         if(reset==1)
             sevenSegRefreshCounter <= 0;

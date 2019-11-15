@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Fri Nov 15 11:41:56 2019
+| Date         : Fri Nov 15 17:22:41 2019
 | Host         : DESKTOP-M9BES7L running 64-bit major release  (build 9200)
 | Command      : report_utilization -file vgaTOP_utilization_synth.rpt -pb vgaTOP_utilization_synth.pb
 | Design       : vgaTOP
@@ -30,13 +30,13 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |  227 |     0 |     63400 |  0.36 |
-|   LUT as Logic          |  227 |     0 |     63400 |  0.36 |
+| Slice LUTs*             |  414 |     0 |     63400 |  0.65 |
+|   LUT as Logic          |  414 |     0 |     63400 |  0.65 |
 |   LUT as Memory         |    0 |     0 |     19000 |  0.00 |
-| Slice Registers         |  326 |     0 |    126800 |  0.26 |
-|   Register as Flip Flop |  326 |     0 |    126800 |  0.26 |
+| Slice Registers         |  488 |     0 |    126800 |  0.38 |
+|   Register as Flip Flop |  488 |     0 |    126800 |  0.38 |
 |   Register as Latch     |    0 |     0 |    126800 |  0.00 |
-| F7 Muxes                |    0 |     0 |     31700 |  0.00 |
+| F7 Muxes                |    3 |     0 |     31700 | <0.01 |
 | F8 Muxes                |    0 |     0 |     15850 |  0.00 |
 +-------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -56,8 +56,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 20    |          Yes |           - |        Reset |
-| 11    |          Yes |         Set |            - |
-| 295   |          Yes |       Reset |            - |
+| 25    |          Yes |         Set |            - |
+| 443   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -80,8 +80,8 @@ Table of Contents
 +----------------+------+-------+-----------+-------+
 |    Site Type   | Used | Fixed | Available | Util% |
 +----------------+------+-------+-----------+-------+
-| DSPs           |    3 |     0 |       240 |  1.25 |
-|   DSP48E1 only |    3 |       |           |       |
+| DSPs           |    1 |     0 |       240 |  0.42 |
+|   DSP48E1 only |    1 |       |           |       |
 +----------------+------+-------+-----------+-------+
 
 
@@ -147,20 +147,20 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  295 |        Flop & Latch |
-| LUT2     |  106 |                 LUT |
-| CARRY4   |   83 |          CarryLogic |
-| LUT4     |   65 |                 LUT |
-| LUT6     |   34 |                 LUT |
-| LUT3     |   33 |                 LUT |
-| LUT5     |   31 |                 LUT |
+| FDRE     |  443 |        Flop & Latch |
+| LUT2     |  187 |                 LUT |
+| CARRY4   |  139 |          CarryLogic |
+| LUT4     |   86 |                 LUT |
+| LUT6     |   77 |                 LUT |
+| LUT3     |   65 |                 LUT |
+| LUT5     |   51 |                 LUT |
+| LUT1     |   33 |                 LUT |
+| OBUF     |   30 |                  IO |
+| FDSE     |   25 |        Flop & Latch |
 | FDCE     |   20 |        Flop & Latch |
-| OBUF     |   18 |                  IO |
-| LUT1     |   13 |                 LUT |
-| OBUFT    |   12 |                  IO |
-| FDSE     |   11 |        Flop & Latch |
-| DSP48E1  |    3 |    Block Arithmetic |
+| MUXF7    |    3 |               MuxFx |
 | IBUF     |    2 |                  IO |
+| DSP48E1  |    1 |    Block Arithmetic |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+
 
