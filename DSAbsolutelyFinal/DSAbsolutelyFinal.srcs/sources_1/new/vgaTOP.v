@@ -21,13 +21,18 @@ module vgaTOP(
     parameter blockHeight =  16;
     parameter blockSize =  blockWidth*blockHeight;
     parameter searchWidth = 16;
+    parameter RESET = 0;
+    parameter CALCULATING = 1;
+    parameter DONE = 2;
     //BLOCKSAD Calculator
     reg [pixelWidth:0] blockSAD = 0 ;
     reg [pixelWidth:0] blockSADFinal = 0 ;
     reg [addressLength:0] addrA = 5000;
     reg [addressLength:0] addrB = 5000;
     reg [addressLength:0] addrS = 5000;
-    reg resetBlockSad = 1;
+    reg [2:0] blockSadState = 0;
+    reg [2:0] blockSadNextState = 1;
+    
     //BRAM variables
     wire [pixelWidth:0] outA;
     wire [pixelWidth:0] outB;
@@ -68,7 +73,7 @@ module vgaTOP(
     reg [pixelWidth:0] minSADFinal =  0;
     integer  jM = 0;
     integer  iM = 0;
-    reg [2:0] flagM = 0;
+    reg [2:0] algState = 0;
     //VGA display generator
     vga640x480 display (
         .i_clk(clk),
@@ -120,7 +125,7 @@ module vgaTOP(
       .douta(outB)
     );
     
-    
+    reg blockSadReset = 1;
     always @(posedge clk)
     begin
         {pix_stb, cnt} <= cnt + 16'h4000;  // divide by 4: (2^16)/4 = 0x4000
@@ -162,16 +167,14 @@ module vgaTOP(
             end
         end
     end
-    
-    reg randomflag = 0;
-    
+    reg minErrorState = 1;
+    reg sadDone = CALCULATING;
     always @(posedge clk)
     begin 
-        resetBlockSad <= 1;
-
-        if(flagM == 0)
-        begin
         
+
+        if(minErrorState == 0)
+        begin
             iM <= 0;
             jM <= 0;
             min_sad <=  24'b111111111111111111111111;
@@ -193,12 +196,12 @@ module vgaTOP(
                 addrB <= addrS-searchWidth-searchWidth -(searchWidth)*imageWidth  ;
             else //not corner or edge
                 addrB <= addrS - searchWidth*imageWidth - searchWidth  ; //aB is the startpoint of searchArea
+            blockSadState <= 0;
         end
-        else if(flagM == 1)
+        else if( blockSadState == DONE) 
         begin
                 if( jM<(searchWidth+searchWidth)) //then fix blockSADFinal for that block.
                 begin
-                    randomflag <= 0;
                     //find min blockSADFinal
                     if(blockSADFinal<min_sad)
                           begin
@@ -213,106 +216,116 @@ module vgaTOP(
                     begin
                         iM <=  iM+1;
                         addrB <= addrB +1;
-                        resetBlockSad <= 0;
+                        blockSadState <= RESET;
                     end
                     else //if row is complete goto next row
                     begin
                          iM <= 0;
                          jM <=  jM+1;
                          addrB <= addrB + imageWidth-(searchWidth+searchWidth) + 1;  
-                         resetBlockSad <= 0;
+                         blockSadState <= RESET;
                     end 
                 end
                 else 
                 begin
-                    minSADFinal <= min_sad;
-//                    if(randomflag == 0)
-//                    begin
-//                        isWrite <= 1;
-//                        whiteEndpoint <= endpoint;
-//                        randomflag <= 1;
-//                    end
-//                    else
-//                        isWrite <= 0;
-                    
+                    minSADFinal <= min_sad; //fixate here
                 end
             end
-           else
-           begin
-                min_sad <= min_sad;
-           end    
+       else if(blockSadState == RESET)
+       begin
+           blockSadState <= CALCULATING;
+       end
+       else if(blockSadState == CALCULATING)
+       begin
+            if(sadDone == DONE)
+                blockSadState <= DONE;
+            else
+                blockSadState <= CALCULATING;
+       end     
+       else //last if
+       begin
+            min_sad <= min_sad;
+       end    
     end
     
-    
+
     //matcher.v   
     always@(posedge clk)    
-    begin        
-        flagM <= 2;
-        if(resetBlockSad == 0 )
-        begin           
-             aA <= addrA;  
-             aB <= addrB;
-             i <= 0;
-             j <= 0;
-             blockSAD <= 0;
-//             resetBlockSad <= 1;
-        end
-        else
-        begin
-        if(j<blockWidth) //if block is over, then fix SAD for that block.
-        begin
-            //taking RGB values of pixels from frames A and B of respective addresses
-            rA <= outA[23:16];
-            gA <= outA[15:8];
-            bA <= outA[7:0];
-
-            rB <= outB[23:16];
-            gB <= outB[15:8];
-            bB <= outB[7:0];
-            
-            //implementing SAD (Sum of Absolute Differences) of pixels
-            if (rA>rB) 
-                blockSAD <= blockSAD+rA-rB;
-            else
-                blockSAD <= blockSAD+rB-rA;
-            
-            if (gA>gB) 
-                blockSAD <= blockSAD+gA-gB;
-            else 
-                blockSAD <= blockSAD+gB-gA;
-            
-            if (bA>bB) 
-                blockSAD <= blockSAD+bA-bB;
-            else 
-                blockSAD <= blockSAD+bB-bA;                            
-            //move to next address?
-            if(i<blockWidth-1) //advance to next pixel (same row,if row is not completely traversed)
-            begin
-                i <= i + 1;
-                aA <= aA +1;
-                aB <= aB +1;
-            end
-            else //if row is complete goto next row
-            begin
-                if(j<blockWidth - 1)
+    begin
+    
+        case(blockSadState)
+            RESET: 
                 begin
+                    aA <= addrA;  
+                    aB <= addrB;
                     i <= 0;
-                    j <= j+1; 
-                    aA <= aA + imageWidth-blockWidth + 1;
-                    aB <= aB + imageWidth-blockWidth + 1;     
+                    j <= 0;
+                    blockSAD <= 0;
+                    sadDone <= CALCULATING;
                 end
-                else
-                    j <= j + 1;                                       
-            end 
-        end
-        else 
-        begin
-            blockSADFinal <= blockSAD;
-            flagM <= 1;
-        end    
-      end   
-    end   
-    //block for seven segment mapping value to displa
+            CALCULATING: 
+                begin
+                    if(j<blockWidth) //if block is over, then fix SAD for that block.
+                    begin
+                        //taking RGB values of pixels from frames A and B of respective addresses
+                        rA <= outA[23:16];
+                        gA <= outA[15:8];
+                        bA <= outA[7:0];
+            
+                        rB <= outB[23:16];
+                        gB <= outB[15:8];
+                        bB <= outB[7:0];
+                        
+                        //implementing SAD (Sum of Absolute Differences) of pixels
+                        if (rA>rB) 
+                            blockSAD <= blockSAD+rA-rB;
+                        else
+                            blockSAD <= blockSAD+rB-rA;
+                        
+                        if (gA>gB) 
+                            blockSAD <= blockSAD+gA-gB;
+                        else 
+                            blockSAD <= blockSAD+gB-gA;
+                        
+                        if (bA>bB) 
+                            blockSAD <= blockSAD+bA-bB;
+                        else 
+                            blockSAD <= blockSAD+bB-bA;                            
+                        //move to next address?
+                        if(i<blockWidth-1) //advance to next pixel (same row,if row is not completely traversed)
+                        begin
+                            i <= i + 1;
+                            aA <= aA +1;
+                            aB <= aB +1;
+                        end
+                        else //if row is complete goto next row
+                        begin
+                            if(j<blockWidth - 1)
+                            begin
+                                i <= 0;
+                                j <= j+1; 
+                                aA <= aA + imageWidth-blockWidth + 1;
+                                aB <= aB + imageWidth-blockWidth + 1;     
+                            end
+                            else
+                                j <= j + 1;                                       
+                        end 
+                  end
+                    else 
+                    begin
+                        blockSADFinal <= blockSAD;
+                        sadDone <= DONE;
+                    end    
+                end
+            default:
+            begin
+                //TODO
+            end    
+        endcase        
+      end 
+
+    
+    //block for seven segment mapping value to display
     always @(*)
     begin
         case(sevenSegCounter)
