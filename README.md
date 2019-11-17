@@ -40,9 +40,9 @@ DESCRIPTION OF FILES
 1. main.py 
 
 
-[ Input: .png image file | Output: .coe file ]
+	[ Input: .png image file | Output: .coe file ]
 
-This Python script iterates over all pixels of the input file and converts their RGB values into binary values
+	This Python script iterates over all pixels of the input file and converts their RGB values into binary values
 by concatenating the R, G, and B values into a single 24 bits (8 bits for each color) value. Then it stores
 these values for all pixels in an array in a .coe file, which is then used to generate Block RAM on FPGA. 
 We generate two separate .coe file for consective frames.
