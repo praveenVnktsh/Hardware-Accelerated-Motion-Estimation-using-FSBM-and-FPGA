@@ -37,7 +37,7 @@ Search Area Size : 48 x 48 pixels
 DESCRIPTION OF FILES
 --------------------
 
-1. index1.py 
+1. main.py 
 
 
 [ Input: .png image file | Output: .coe file ]
