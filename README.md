@@ -21,7 +21,7 @@ This project implements block matching using full search between two consecutive
 ----------------------------------------------------------------------------------------------------------------------
 ### Description of code 
 
-1. [**main.py**]("DSProjectFinal/Python image to coe converter")
+1. [**main.py**](DSProjectFinal/pyIm2COE)
 >[ Input: .png image file | Output: .coe file ]
 
 This Python script iterates over all pixels of the input file and converts their RGB values into binary values by concatenating the R, G, and B values into a single 24 bits (8 bits for each colour) value. Then it stores these values for all pixels in an array in a .coe file, which is then used to generate Block RAM on FPGA using an IP core. We generate two separate .coe files for the two consecutive frames.</p>
