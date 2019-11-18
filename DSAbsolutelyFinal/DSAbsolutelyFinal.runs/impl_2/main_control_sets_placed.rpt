@@ -1,0 +1,95 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Mon Nov 18 18:09:08 2019
+| Host         : DESKTOP-M9BES7L running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
+| Design       : main
+| Device       : xc7a100t
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    24 |
+| Unused register locations in slices containing registers |    56 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      1 |            1 |
+|      2 |            1 |
+|      4 |            2 |
+|      6 |            1 |
+|     10 |            2 |
+|     12 |            1 |
+|     14 |            3 |
+|    16+ |           13 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              73 |           29 |
+| No           | No                    | Yes                    |              20 |            5 |
+| No           | Yes                   | No                     |               4 |            3 |
+| Yes          | No                    | No                     |             166 |           48 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             225 |           61 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+----------------------------+----------------------------+------------------+----------------+
+|  Clock Signal  |        Enable Signal       |      Set/Reset Signal      | Slice Load Count | Bel Load Count |
++----------------+----------------------------+----------------------------+------------------+----------------+
+|  clk_IBUF_BUFG | display/v_count[6]_i_1_n_0 | display/v_count[5]_i_1_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG | isWrite_reg_n_0            |                            |                1 |              2 |
+|  clk_IBUF_BUFG |                            | min_sad                    |                3 |              4 |
+|  clk_IBUF_BUFG | aB[13]_i_1_n_0             | aA[3]_i_1_n_0              |                2 |              4 |
+|  clk_IBUF_BUFG | display/v_count[6]_i_1_n_0 |                            |                3 |              6 |
+|  clk_IBUF_BUFG | addrA[4]_i_1_n_0           |                            |                3 |             10 |
+|  clk_IBUF_BUFG | pix_stb                    |                            |                4 |             10 |
+|  clk_IBUF_BUFG | VGA_R[3]_i_2_n_0           | display/SR[0]              |                6 |             12 |
+|  clk_IBUF_BUFG | addrB[0]_i_1_n_0           |                            |                4 |             14 |
+|  clk_IBUF_BUFG | endpoint[13]_i_1_n_0       |                            |                4 |             14 |
+|  clk_IBUF_BUFG | whiteEndpoint[13]_i_1_n_0  |                            |                4 |             14 |
+|  clk_IBUF_BUFG | bB[7]_i_1_n_0              |                            |                6 |             16 |
+|  clk_IBUF_BUFG |                            | reset_IBUF                 |                5 |             20 |
+|  clk_IBUF_BUFG | aB[13]_i_1_n_0             |                            |                5 |             24 |
+|  clk_IBUF_BUFG | blockSADFinal[23]_i_1_n_0  |                            |                6 |             24 |
+|  clk_IBUF_BUFG | bB[7]_i_1_n_0              | blockSAD                   |                6 |             24 |
+|  clk_IBUF_BUFG | endpoint                   | min_sad                    |                6 |             24 |
+|  clk_IBUF_BUFG | iM[0]_i_2_n_0              | iM[0]_i_1_n_0              |                8 |             32 |
+|  clk_IBUF_BUFG | iT[0]_i_2_n_0              | iT[0]_i_1_n_0              |                8 |             32 |
+|  clk_IBUF_BUFG | i[0]_i_2_n_0               | i[0]_i_1_n_0               |                8 |             32 |
+|  clk_IBUF_BUFG | jM                         | min_sad                    |                8 |             32 |
+|  clk_IBUF_BUFG | jT[0]_i_1_n_0              |                            |                8 |             32 |
+|  clk_IBUF_BUFG | j[0]_i_1_n_0               | blockSAD                   |                8 |             32 |
+|  clk_IBUF_BUFG |                            |                            |               29 |             73 |
++----------------+----------------------------+----------------------------+------------------+----------------+
+
+

@@ -1,0 +1,105 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Thu Nov 14 00:11:29 2019
+# Process ID: 13696
+# Current directory: E:/ds/DSProjectFinal/DSAbsolutelyFinal
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12008 E:\ds\DSProjectFinal\DSAbsolutelyFinal\DSAbsolutelyFinal.xpr
+# Log file: E:/ds/DSProjectFinal/DSAbsolutelyFinal/vivado.log
+# Journal file: E:/ds/DSProjectFinal/DSAbsolutelyFinal\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.xpr
+INFO: [Project 1-313] Project file moved from 'E:/ds/DSAbsolutelyFinal' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'I:/ProgramFiles/vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:22 ; elapsed = 00:00:15 . Memory (MB): peak = 780.223 ; gain = 184.832
+update_compile_order -fileset sources_1
+reset_run synth_2
+launch_runs impl_2 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2Read/imageFrame2Read.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2/imageFrame2.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame1/imageFrame1.xci' is already up-to-date
+[Thu Nov 14 00:12:55 2019] Launched synth_2...
+Run output will be captured here: E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/runme.log
+[Thu Nov 14 00:12:55 2019] Launched impl_2...
+Run output will be captured here: E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/impl_2/runme.log
+delete_runs "synth_1"
+INFO: [Vivado 12-3261] Dependent run, 'impl_1', will be deleted with parent run, 'synth_1'.
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_1
+
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2018.3
+  **** Build date : Dec  7 2018-00:40:27
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 843.523 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292A8AE83A
+open_hw_target: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1774.863 ; gain = 931.340
+set_property PROGRAM.FILE {E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/impl_2/vgaTOP.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/impl_2/vgaTOP.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_2
+launch_runs impl_2 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2Read/imageFrame2Read.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2/imageFrame2.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame1/imageFrame1.xci' is already up-to-date
+[Thu Nov 14 00:18:15 2019] Launched synth_2...
+Run output will be captured here: E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/runme.log
+[Thu Nov 14 00:18:15 2019] Launched impl_2...
+Run output will be captured here: E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/impl_2/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/impl_2/vgaTOP.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_2
+launch_runs impl_2 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2Read/imageFrame2Read.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2/imageFrame2.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame1/imageFrame1.xci' is already up-to-date
+[Thu Nov 14 00:23:20 2019] Launched synth_2...
+Run output will be captured here: E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/runme.log
+[Thu Nov 14 00:23:20 2019] Launched impl_2...
+Run output will be captured here: E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/impl_2/runme.log
+reset_run synth_2
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2
+
+launch_runs impl_2 -to_step write_bitstream -jobs 8
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2Read/imageFrame2Read.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame2/imageFrame2.xci' is already up-to-date
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/ip/imageFrame1/imageFrame1.xci' is already up-to-date
+[Thu Nov 14 00:24:09 2019] Launched synth_2...
+Run output will be captured here: E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/synth_2/runme.log
+[Thu Nov 14 00:24:09 2019] Launched impl_2...
+Run output will be captured here: E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/impl_2/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {E:/ds/DSProjectFinal/DSAbsolutelyFinal/DSAbsolutelyFinal.runs/impl_2/vgaTOP.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
