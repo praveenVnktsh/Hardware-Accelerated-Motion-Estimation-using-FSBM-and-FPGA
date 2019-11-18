@@ -65,6 +65,10 @@ simulation to run, the testbench simply initilializes an instance of the motion 
 A seven segment display was also used for debugging purposes. Code for this can be found at the bottom of the main.v file.
 
 ----------------------------------------------------------------------------------------------------------------------
+### Video
+
+View a short explanation and demonstration of this project here: https://www.youtube.com/watch?v=ZtyWjcTnX9U
+
 ### Authors
 
 * Praveen Venkatesh
