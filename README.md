@@ -21,12 +21,12 @@ This project implements block matching using full search between two consecutive
 ----------------------------------------------------------------------------------------------------------------------
 ### Description of code 
 
-1. **main.py** (\DSProjectFinal\Python image to coe converter)
+1. [**main.py**](DSProjectFinal/Python image to coe converter)
 >[ Input: .png image file | Output: .coe file ]
 
 This Python script iterates over all pixels of the input file and converts their RGB values into binary values by concatenating the R, G, and B values into a single 24 bits (8 bits for each colour) value. Then it stores these values for all pixels in an array in a .coe file, which is then used to generate Block RAM on FPGA using an IP core. We generate two separate .coe files for the two consecutive frames.</p>
 
-2. **main.v** (\DSAbsolutelyFinal\DSAbsolutelyFinal.srcs\sources_1\new)
+2. [**main.v**](DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new)
 
 > [ Input: Clock, Reset | Output: VGA and seven segment display]
 
@@ -49,14 +49,14 @@ This file has 4 main blocks that perform various actions -
 - Writing into BRAM and VGA Output-
   - It receives the start point and endpoint for each macroblock and colours endpoints white and start points black by writing into the Block RAM. Apart from this, the block also displays the output on a 640 x 480 VGA using locations as x and y coordinates. It also refreshes the frame and darkens the unused parts  of the display. 
 
-3. **vga.v** (\DSAbsolutelyFinal\DSAbsolutelyFinal.srcs\sources_1\new)
+3. [**vga.v**](DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sources_1/new)
 
 > [ Useful Inputs for displaying: Clock, Reset | Output: Co-ordinates and pixel values for diplaying on screen]
 
 The vga.v file serves as a VGA controller by maintaining the HSYNC and VSYNC signals for the VGA display. By using
 a 25MHz clock, it also generates the current drawing x and y coordinates of the VGA display.
 
-3. **tb.v** (\DSAbsolutelyFinal\DSAbsolutelyFinal.srcs\sim_1\new)
+3. [**tb.v**](DSAbsolutelyFinal/DSAbsolutelyFinal.srcs/sim_1/new)
 
 This file serves as a testbench for the entire program to run a simulation. Since no initial values are required for the 
 simulation to run, the testbench simply initilializes an instance of the motion estimation block apart from generating the clock.
