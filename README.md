@@ -2,13 +2,14 @@
 
 This project implements block matching using full search between two consecutive 96 x 96 pixel frames of a video sequence and displays the motion vectors on a VGA display. This project was implemented as part of the ES203 course on Digtal Systems at IIT Gandhinagar during the academic year 2019-20.
 
-
+----------------------------------------------------------------------------------------------------------------------
 ### Prerequisites
 
 - Python 3
 - Vivado by Xilinx Inc (v2018.3 or higher)
 - Nexys 4 DDR FPGA
 
+----------------------------------------------------------------------------------------------------------------------
 ### General Information on the algorithm
 
 - Algorithm: Block Matching using Full Search
@@ -17,6 +18,7 @@ This project implements block matching using full search between two consecutive
 - Macroblock Size  : 16 x 16 pixels
 - Search Area Size : 48 x 48 pixels
 
+----------------------------------------------------------------------------------------------------------------------
 ### Description of code 
 
 1. main.py (\DSProjectFinal\Python image to coe converter)
@@ -59,8 +61,10 @@ a 25MHz clock, it also generates the current drawing x and y coordinates of the 
 This file serves as a testbench for the entire program to run a simulation. Since no initial values are required for the 
 simulation to run, the testbench simply initilializes an instance of the motion estimation block apart from generating the clock.
 
-----------------------------------------------------------------------------------------------------------------------
+
 A seven segment display was also used for debugging purposes. Code for this can be found at the bottom of the main.v file.
+
+----------------------------------------------------------------------------------------------------------------------
 ### Authors
 
 * Praveen Venkatesh
@@ -68,7 +72,7 @@ A seven segment display was also used for debugging purposes. Code for this can 
 * Chris Francis
 * Prankush Agarwal
 
-
+----------------------------------------------------------------------------------------------------------------------
 ### Acknowledgments
 
 * fpga4student.com
