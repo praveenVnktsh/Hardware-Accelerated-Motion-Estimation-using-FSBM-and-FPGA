@@ -67,7 +67,8 @@ A seven segment display was also used for debugging purposes. Code for this can 
 ----------------------------------------------------------------------------------------------------------------------
 ### Video
 
-View a short explanation and demonstration of this project here: https://www.youtube.com/watch?v=ZtyWjcTnX9U
+View a short explanation and demonstration of this project here: 
+[![Watch the video](http://i3.ytimg.com/vi/ZtyWjcTnX9U/maxresdefault.jpg)](https://www.youtube.com/watch?v=ZtyWjcTnX9U)
 
 ### Authors
 
